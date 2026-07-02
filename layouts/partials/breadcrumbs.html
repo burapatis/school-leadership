@@ -1,0 +1,8 @@
+{{ if not .IsHome }}
+<nav class="breadcrumbs" aria-label="เส้นทางนำทาง">
+  <ol>
+    <li><a href="{{ "/" | relURL }}">หน้าแรก</a></li>
+    <li aria-current="page">{{ .Title }}</li>
+  </ol>
+</nav>
+{{ end }}

@@ -6,11 +6,15 @@
 <body>
   <a class="skip-link" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
   {{ partial "header.html" . }}
-  <main id="main">
+  <main id="main" data-pagefind-body>
     {{ block "main" . }}{{ end }}
   </main>
+  <div data-pagefind-ignore>
   {{ partial "footer.html" . }}
+  </div>
   {{ $js := resources.Get "js/script.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" defer></script>
+  <link href="{{ "pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet" />
+  <script src="{{ "pagefind/pagefind-ui.js" | relURL }}" defer></script>
 </body>
 </html>

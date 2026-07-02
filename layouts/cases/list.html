@@ -1,4 +1,5 @@
 {{ define "main" }}
+  {{ partial "breadcrumbs.html" . }}
   {{ with .Params.hero }}
     {{ partial "page-hero.html" (dict "eyebrow" .eyebrow "title" .title "lead" .lead) }}
   {{ end }}

@@ -1,8 +1,9 @@
-<header class="site-header">
+<header class="site-header" data-pagefind-ignore>
   <a class="brand" href="{{ "/" | relURL }}" aria-label="กลับหน้าแรก">
     <span class="brand-mark">ผบ.</span>
     <span><strong>วิชาชีพผู้บริหารสถานศึกษา</strong><small>มาตรฐาน • จรรยาบรรณ • อุดมการณ์</small></span>
   </a>
+  {{ partial "search.html" . }}
   <button class="nav-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
   <nav class="nav" aria-label="เมนูหลัก">
     {{- range .Site.Menus.main -}}

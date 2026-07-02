@@ -10,11 +10,11 @@ hero:
 <section class="section">
 <div class="standard-layout">
 <div class="tabs" role="tablist" aria-label="หมวดมาตรฐาน">
-<button class="tab active" data-tab="knowledge">ความรู้และประสบการณ์</button>
-<button class="tab" data-tab="performance">การปฏิบัติงาน</button>
-<button class="tab" data-tab="conduct">การปฏิบัติตน</button>
+<button class="tab active" role="tab" id="tab-knowledge" aria-selected="true" aria-controls="knowledge" data-tab="knowledge" tabindex="0">ความรู้และประสบการณ์</button>
+<button class="tab" role="tab" id="tab-performance" aria-selected="false" aria-controls="performance" data-tab="performance" tabindex="-1">การปฏิบัติงาน</button>
+<button class="tab" role="tab" id="tab-conduct" aria-selected="false" aria-controls="conduct" data-tab="conduct" tabindex="-1">การปฏิบัติตน</button>
 </div>
-<div class="tab-panel active" id="knowledge">
+<div class="tab-panel active" role="tabpanel" id="knowledge" aria-labelledby="tab-knowledge" tabindex="0">
 <h3>มาตรฐานความรู้และประสบการณ์วิชาชีพ</h3>
 <p>ผู้ประกอบวิชาชีพผู้บริหารสถานศึกษาต้องมีคุณวุฒิและความรู้ตามที่คุรุสภากำหนด ครอบคลุมสาระสำคัญ ได้แก่</p>
 <ul>
@@ -28,7 +28,7 @@ hero:
 </ul>
 <p>รวมทั้งต้องมีประสบการณ์วิชาชีพตามเงื่อนไข เช่น ประสบการณ์ด้านปฏิบัติการสอน หรือประสบการณ์ในตำแหน่งที่เกี่ยวข้องกับการบริหาร ตามที่ข้อบังคับและประกาศฉบับที่มีผลใช้บังคับกำหนด</p>
 </div>
-<div class="tab-panel" id="performance">
+<div class="tab-panel" role="tabpanel" id="performance" aria-labelledby="tab-performance" tabindex="0" hidden>
 <h3>มาตรฐานการปฏิบัติงาน</h3>
 <p>ข้อกำหนดเกี่ยวกับคุณลักษณะและคุณภาพที่พึงประสงค์ในการประกอบวิชาชีพ ซึ่งผู้บริหารต้องปฏิบัติเพื่อให้เกิดผลต่อคุณภาพการศึกษา ได้แก่</p>
 <ul>
@@ -43,7 +43,7 @@ hero:
 <li>แสวงหาและใช้ข้อมูลข่าวสารในการพัฒนา เป็นผู้นำและสร้างผู้นำทางวิชาการ</li>
 </ul>
 </div>
-<div class="tab-panel" id="conduct">
+<div class="tab-panel" role="tabpanel" id="conduct" aria-labelledby="tab-conduct" tabindex="0" hidden>
 <h3>มาตรฐานการปฏิบัติตน</h3>
 <p>ข้อกำหนดเกี่ยวกับความประพฤติของผู้ประกอบวิชาชีพ ตั้งอยู่บนจรรยาบรรณของวิชาชีพ 5 หมวด เพื่อรักษาและส่งเสริมเกียรติคุณ ชื่อเสียง ฐานะ และความเชื่อถือศรัทธาต่อวิชาชีพทางการศึกษา</p>
 <p><a class="btn secondary" href="/ethics/">อ่านหมวดจรรยาบรรณฉบับเต็ม</a></p>

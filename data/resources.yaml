@@ -1,0 +1,66 @@
+groups:
+  - title: กฎหมายและข้อบังคับของไทย
+    docs:
+      - title: พระราชบัญญัติสภาครูและบุคลากรทางการศึกษา พ.ศ. 2546
+        desc: ฐานกฎหมายของวิชาชีพควบคุมทางการศึกษาและระบบใบอนุญาต
+        url: https://www.ksp.or.th/web/main/law/
+        source: คุรุสภา
+      - title: ข้อบังคับคุรุสภา ว่าด้วยมาตรฐานวิชาชีพ พ.ศ. 2556 (ฉบับที่ 6 พ.ศ. 2567)
+        desc: มาตรฐานความรู้และประสบการณ์ การปฏิบัติงาน และการปฏิบัติตน
+        url: https://www.ksp.or.th/web/main/standard/
+        source: คุรุสภา
+      - title: ข้อบังคับคุรุสภา ว่าด้วยจรรยาบรรณของวิชาชีพ พ.ศ. 2556
+        desc: จรรยาบรรณ 5 หมวดของผู้ประกอบวิชาชีพทางการศึกษา
+        url: https://www.ksp.or.th/web/main/ethics/
+        source: คุรุสภา
+      - title: ประกาศคุรุสภา เรื่อง สาระความรู้ สมรรถนะ และประสบการณ์วิชาชีพ
+        desc: รายละเอียดสาระความรู้และสมรรถนะของผู้บริหารสถานศึกษา
+        url: https://www.ksp.or.th/web/main/standard/
+        source: คุรุสภา
+      - title: ข้อบังคับคุรุสภา ว่าด้วยใบอนุญาตประกอบวิชาชีพ
+        desc: หลักเกณฑ์การขอรับและต่ออายุใบอนุญาตประกอบวิชาชีพผู้บริหารสถานศึกษา
+        url: https://www.ksp.or.th/web/main/license/
+        source: คุรุสภา
+      - title: ราชกิจจานุเบกษา — ค้นหาเอกสารฉบับเต็ม
+        desc: ตรวจสอบฉบับที่มีผลใช้บังคับล่าสุดของพระราชบัญญัติ ข้อบังคับ และประกาศ
+        url: https://ratchakitcha.soc.go.th/
+        source: ราชกิจจานุเบกษา
+      - title: หลักเกณฑ์การคัดเลือกผู้บริหารสถานศึกษา (สพฐ.)
+        desc: คุณสมบัติและกระบวนการคัดเลือกตามหน่วยงานต้นสังกัด
+        url: https://www.obec.go.th/
+        source: สพฐ.
+
+  - title: กรอบแนวคิดสากล
+    docs:
+      - title: SEAMEO INNOTECH — Competency Framework for Southeast Asian School Heads
+        desc: กรอบสมรรถนะผู้บริหารสถานศึกษาแห่งเอเชียตะวันออกเฉียงใต้ 5 ด้าน
+        url: https://www.seameo-innotech.org/publication/competency-framework-for-southeast-asian-school-heads/
+        source: SEAMEO INNOTECH
+      - title: UNESCO Global Education Monitoring Report
+        desc: รายงานระดับโลกว่าด้วยความสำคัญและการพัฒนาผู้นำการศึกษา
+        url: https://www.unesco.org/gem-report/en
+        source: UNESCO
+      - title: Professional Standards for Educational Leaders (PSEL) 2015
+        desc: มาตรฐานผู้นำการศึกษา 10 ด้านของสหรัฐอเมริกา
+        url: https://www.nassp.org/national-principal-standards/
+        source: NASSP / NPBEA
+      - title: National Professional Qualification for Headship (UK)
+        desc: กรอบมาตรฐานผู้บริหารสถานศึกษาของอังกฤษ
+        url: https://www.gov.uk/government/publications/national-professional-qualification-for-headship-npqh-framework
+        source: UK Government
+      - title: Australian Professional Standard for Principals
+        desc: มาตรฐานวิชาชีพผู้บริหารสถานศึกษาของออสเตรเลีย
+        url: https://www.aitsl.edu.au/standards/principal
+        source: AITSL
+
+  - title: แนวทางการใช้และตรวจสอบเอกสาร
+    docs:
+      - title: ตรวจสอบฉบับที่มีผลใช้บังคับ
+        desc: ข้อบังคับและประกาศมีการแก้ไขเพิ่มเติมเป็นระยะ ให้ยึดฉบับล่าสุดจากราชกิจจานุเบกษาและเว็บไซต์คุรุสภา
+        url: https://www.ksp.or.th/
+        source: คุรุสภา
+      - title: อ้างอิงต้นฉบับเสมอเมื่อใช้ในทางการ
+        desc: สรุปในเว็บไซต์นี้จัดทำเพื่อความเข้าใจ ไม่ใช่เอกสารทางกฎหมาย — ดูหน้าเกี่ยวกับศูนย์
+        url: /about/
+        source: ศูนย์วิชาชีพ
+        internal: true

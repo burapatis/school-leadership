@@ -1,0 +1,98 @@
+{{- $title := .Title -}}
+{{- if .IsHome -}}
+  {{- $title = .Site.Title -}}
+{{- else -}}
+  {{- $title = printf "%s | %s" .Title .Site.Title -}}
+{{- end -}}
+{{- $desc := .Description | default .Site.Params.description -}}
+{{- $canonical := .Permalink | absURL -}}
+{{- $ogImage := (.Params.image | default .Site.Params.og_image) | absURL -}}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}" />
+<link rel="canonical" href="{{ $canonical }}" />
+<meta name="author" content="{{ .Site.Params.author }}" />
+<meta name="generator" content="Hugo {{ hugo.Version }}" />
+
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+<meta property="og:locale" content="th_TH" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:url" content="{{ $canonical }}" />
+<meta property="og:image" content="{{ $ogImage }}" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+<meta name="twitter:image" content="{{ $ogImage }}" />
+
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="{{ "favicon.svg" | relURL }}" />
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;650;800&family=Noto+Serif+Thai:wght@600;700;800&display=swap" rel="stylesheet" />
+
+{{ $css := resources.Get "css/styles.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+
+<script type="application/ld+json">
+{{- $siteName := .Site.Title -}}
+{{- $siteDesc := .Site.Params.description -}}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ .Site.BaseURL }}#website",
+      "url": "{{ .Site.BaseURL }}",
+      "name": {{ $siteName | jsonify }},
+      "description": {{ $siteDesc | jsonify }},
+      "inLanguage": "th-TH",
+      "publisher": { "@id": "{{ .Site.BaseURL }}#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ .Site.BaseURL }}#organization",
+      "name": {{ $siteName | jsonify }},
+      "url": "{{ .Site.BaseURL }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ "favicon.svg" | absURL }}"
+      }
+    }
+    {{- if not .IsHome -}}
+    ,{
+      "@type": "WebPage",
+      "@id": "{{ $canonical }}#webpage",
+      "url": "{{ $canonical }}",
+      "name": {{ .Title | jsonify }},
+      "description": {{ $desc | jsonify }},
+      "isPartOf": { "@id": "{{ .Site.BaseURL }}#website" },
+      "inLanguage": "th-TH"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "หน้าแรก",
+          "item": "{{ .Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ .Title | jsonify }},
+          "item": "{{ $canonical }}"
+        }
+      ]
+    }
+    {{- end -}}
+  ]
+}
+</script>

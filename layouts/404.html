@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="page-hero">
+  <p class="eyebrow">404</p>
+  <h1>ไม่พบหน้าที่ต้องการ</h1>
+  <p class="lead">หน้าที่คุณกำลังค้นหาอาจถูกย้าย ลบออก หรือพิมพ์ที่อยู่ไม่ถูกต้อง</p>
+  <div class="hero-actions">
+    <a class="btn primary" href="{{ "/" | relURL }}">กลับหน้าแรก</a>
+    <a class="btn secondary" href="{{ "/standards/" | relURL }}">ดูมาตรฐานวิชาชีพ</a>
+  </div>
+</section>
+<section class="section tinted">
+  <div class="section-head">
+    <h2>สำรวจหมวดอื่น</h2>
+  </div>
+  <div class="module-grid">
+    {{- range .Site.Menus.main -}}
+      {{- if ne .URL "/" -}}
+        <a class="module" href="{{ .URL | relURL }}"><h3>{{ .Name }}</h3><span class="go">เข้าสู่หมวด →</span></a>
+      {{- end -}}
+    {{- end -}}
+  </div>
+</section>
+{{ end }}

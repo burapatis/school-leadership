@@ -1,0 +1,67 @@
+baseURL = 'https://burapatis.github.io/school-leadership/'
+locale = 'th-th'
+title = 'ศูนย์วิชาชีพผู้บริหารสถานศึกษาไทย'
+defaultContentLanguage = 'th'
+disableKinds = ['taxonomy', 'term']
+enableRobotsTXT = true
+canonifyURLs = true
+pygmentsUseClasses = true
+
+[params]
+  description = 'ศูนย์รวมหลักการ มาตรฐาน จรรยาบรรณ และการพัฒนาวิชาชีพผู้บริหารสถานศึกษาไทยบนหลักการสากล'
+  author = 'ศูนย์วิชาชีพผู้บริหารสถานศึกษาไทย'
+  license = 'CC BY-SA 4.0'
+  og_image = 'images/og-default.svg'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML']
+  page = ['HTML']
+
+[sitemap]
+  changefreq = 'monthly'
+  priority = 0.5
+  filename = 'sitemap.xml'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = 'หน้าแรก'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'มาตรฐานวิชาชีพ'
+    url = '/standards/'
+    weight = 2
+  [[menu.main]]
+    name = 'จรรยาบรรณ'
+    url = '/ethics/'
+    weight = 3
+  [[menu.main]]
+    name = 'เส้นทางสู่ผู้บริหาร'
+    url = '/pathway/'
+    weight = 4
+  [[menu.main]]
+    name = 'พัฒนาผู้บริหาร'
+    url = '/development/'
+    weight = 5
+  [[menu.main]]
+    name = 'คลังกรณีศึกษา'
+    url = '/cases/'
+    weight = 6
+  [[menu.main]]
+    name = 'ศรัทธาสังคม'
+    url = '/trust/'
+    weight = 7
+  [[menu.main]]
+    name = 'แหล่งอ้างอิง'
+    url = '/resources/'
+    weight = 8
+  [[menu.footer]]
+    name = 'เกี่ยวกับศูนย์'
+    url = '/about/'
+    weight = 1

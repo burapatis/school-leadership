@@ -1,0 +1,17 @@
+{
+  "name": "ศูนย์วิชาชีพผู้บริหารสถานศึกษาไทย",
+  "short_name": "ผบ. วิชาชีพ",
+  "description": "มาตรฐาน จรรยาบรรณ และการพัฒนาวิชาชีพผู้บริหารสถานศึกษาไทย",
+  "lang": "th",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ed",
+  "theme_color": "#0b5d57",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

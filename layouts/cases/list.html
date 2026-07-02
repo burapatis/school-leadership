@@ -1,0 +1,30 @@
+{{ define "main" }}
+  {{ with .Params.hero }}
+    {{ partial "page-hero.html" (dict "eyebrow" .eyebrow "title" .title "lead" .lead) }}
+  {{ end }}
+  <section class="section">
+    <div class="filter-bar" role="group" aria-label="ตัวกรองหมวดกรณีศึกษา">
+      <button class="chip active" data-filter="all">ทั้งหมด</button>
+      <button class="chip" data-filter="leadership">ภาวะผู้นำ</button>
+      <button class="chip" data-filter="academic">วิชาการ</button>
+      <button class="chip" data-filter="people">บุคลากร</button>
+      <button class="chip" data-filter="community">ชุมชน</button>
+      <button class="chip" data-filter="ethics">จริยธรรม</button>
+    </div>
+    <label class="search-box"><span class="sr-only">ค้นหากรณีศึกษา</span>
+      <input type="search" id="caseSearch" placeholder="พิมพ์คำค้น เช่น ครู งบประมาณ ชุมชน…" />
+    </label>
+    <div class="case-grid" id="caseGrid">
+      {{ range hugo.Data.cases }}
+      <article class="case" data-cat="{{ .category }}">
+        <span class="tag">{{ .category_name }}</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .summary }}</p>
+        <details><summary>ประเด็นชวนคิด</summary><p>{{ .prompt }}</p></details>
+      </article>
+      {{ end }}
+    </div>
+    <p id="caseEmpty" class="empty" hidden>ไม่พบกรณีศึกษาที่ตรงกับคำค้น ลองเปลี่ยนคำค้นหรือเลือกหมวด “ทั้งหมด”</p>
+  </section>
+  {{ .Content }}
+{{ end }}

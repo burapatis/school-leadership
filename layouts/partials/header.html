@@ -1,0 +1,18 @@
+<header class="site-header">
+  <a class="brand" href="{{ "/" | relURL }}" aria-label="กลับหน้าแรก">
+    <span class="brand-mark">ผบ.</span>
+    <span><strong>วิชาชีพผู้บริหารสถานศึกษา</strong><small>มาตรฐาน • จรรยาบรรณ • อุดมการณ์</small></span>
+  </a>
+  <button class="nav-toggle" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+  <nav class="nav" aria-label="เมนูหลัก">
+    {{- range .Site.Menus.main -}}
+  {{- $active := false -}}
+  {{- if eq .URL "/" -}}
+    {{- $active = $.IsHome -}}
+  {{- else -}}
+    {{- $active = hasPrefix $.RelPermalink .URL -}}
+  {{- end -}}
+  <a href="{{ .URL | relURL }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ .Name }}</a>
+{{- end -}}
+  </nav>
+</header>

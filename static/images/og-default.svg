@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="(9"L'4
+2
+59I#4+2#*2(6)2D"">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbf7eb"/>
+      <stop offset="100%" stop-color="#e2efe8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="80" width="88" height="88" rx="24" fill="#0b5d57"/>
+  <text x="124" y="138" text-anchor="middle" font-family="Noto Sans Thai, sans-serif" font-size="36" font-weight="800" fill="#ffffff">.</text>
+  <text x="200" y="130" font-family="Noto Serif Thai, serif" font-size="42" font-weight="700" fill="#17312f">'4
+2
+59I#4+2#*2(6)2</text>
+  <text x="200" y="180" font-family="Noto Sans Thai, sans-serif" font-size="28" fill="#61706d">!2#2 " ##"2## " -8!2#L</text>
+  <text x="80" y="300" font-family="Noto Serif Thai, serif" font-size="52" font-weight="700" fill="#17312f">7I9 *#I2*##L A%0"#01</text>
+  <text x="80" y="370" font-family="Noto Serif Thai, serif" font-size="52" font-weight="700" fill="#0b5d57">'4
+2
+59I#4+2#*2(6)2D"</text>
+  <rect x="80" y="420" width="200" height="6" rx="3" fill="#d19a2a"/>
+</svg>

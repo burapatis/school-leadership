@@ -1,0 +1,14 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Legacy static site (pre-Hugo)
+legacy/

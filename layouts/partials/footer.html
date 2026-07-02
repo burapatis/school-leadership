@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <p><strong>{{ .Site.Title }}</strong></p>
+      <p class="small">พื้นที่กลางเพื่อยกระดับมาตรฐาน อุดมการณ์ และความเชื่อถือศรัทธาต่อวิชาชีพผู้บริหารสถานศึกษา</p>
+      <p class="small">เนื้อหาเผยแพร่ภายใต้สัญญาอนุญาต <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.th" rel="license">CC BY-SA 4.0</a></p>
+    </div>
+    <nav aria-label="เมนูท้ายเว็บ" class="footer-nav">
+      {{- range .Site.Menus.main -}}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      {{- end -}}
+      {{- range .Site.Menus.footer -}}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      {{- end -}}
+    </nav>
+  </div>
+  <p class="small note">หมายเหตุ: เว็บไซต์นี้เป็นงานออกแบบเชิงวิชาการและสาธารณะ สรุปสาระจากเอกสารทางการเพื่อความเข้าใจ โปรดตรวจสอบถ้อยคำทางกฎหมายกับเอกสารต้นฉบับที่มีผลใช้บังคับก่อนนำไปอ้างอิงหรือเผยแพร่จริง</p>
+</footer>

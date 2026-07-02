@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ with .Params.hero }}
+    {{ partial "page-hero.html" (dict "eyebrow" .eyebrow "title" .title "lead" .lead) }}
+  {{ end }}
+  {{ .Content }}
+{{ end }}

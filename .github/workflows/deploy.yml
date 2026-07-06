@@ -55,3 +55,22 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Retry Pages deploy after transient failure
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+
+      - name: Verify Pages deploy succeeded
+        run: |
+          if [ "${{ steps.deployment.outcome }}" = "success" ] || [ "${{ steps.deployment_retry.outcome }}" = "success" ]; then
+            echo "Pages deploy OK"
+          else
+            echo "GitHub Pages deploy failed after retry."
+            exit 1
+          fi

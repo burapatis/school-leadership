@@ -32,14 +32,19 @@ school-leadership/
 
 ## การพัฒนาในเครื่อง
 
-ต้องติดตั้ง [Hugo Extended](https://gohugo.io/installation/) ก่อน
+ต้องติดตั้ง [Hugo Extended](https://gohugo.io/installation/) และ [Node.js](https://nodejs.org/) ก่อน
 
 ```bash
-# รันเซิร์ฟเวอร์พัฒนา (http://localhost:1313)
-hugo server -D
+# ติดตั้ง Pagefind (ครั้งแรก)
+npm install
 
-# สร้างไฟล์ static ในโฟลเดอร์ public/
-hugo --minify
+# รันเซิร์ฟเวอร์พัฒนา (http://localhost:1313) — ค้นหาทั้งเว็บยังไม่พร้อมจนกว่าจะ build
+hugo server -D
+# หรือ
+npm run dev
+
+# สร้างไฟล์ static + ดัชนีค้นหา Pagefind
+npm run build
 ```
 
 ## การนำขึ้น GitHub Pages
@@ -53,21 +58,25 @@ hugo --minify
 
 > หมายเหตุ: แก้ `baseURL` ใน `hugo.toml` ให้ตรงกับ GitHub username ของคุณ หรือปล่อยให้ GitHub Actions กำหนดตอน build
 
-## มาตรฐานที่รองรับ (ระยะ 1–2)
+## มาตรฐานที่รองรับ
 
 - SEO: canonical URL, Open Graph, Twitter Cards, sitemap.xml, robots.txt
 - Structured Data: Schema.org (WebSite, Organization, WebPage, BreadcrumbList)
-- Accessibility: skip-link, aria labels, reduced motion
+- Accessibility: skip-link, aria labels, WAI-ARIA tabs, reduced motion
+- ค้นหาทั้งเว็บ: [Pagefind](https://pagefind.app/) (client-side, กด `⌘K` / `Ctrl+K`)
+- Breadcrumb navigation ทุกหน้าย่อย
+- Print stylesheet สำหรับพิมพ์มาตรฐาน/จรรยาบรรณ
+- ลิงก์เอกสารต้นฉบับในหน้าแหล่งอ้างอิง (คุรุสภา, ราชกิจจานุเบกษา, SEAMEO, UNESCO ฯลฯ)
 - หน้า 404 และหน้า About
 - Privacy: แบบประเมินประมวลผลบนเครื่องผู้ใช้เท่านั้น ไม่เก็บข้อมูลส่วนบุคคล
+
+## สิ่งที่ควรทำต่อ (ระยะ 4)
+
+1. ตรวจทานถ้อยคำทางกฎหมายทุกหน้ากับเอกสารต้นฉบับ
+2. กำหนด custom domain (เมื่อพร้อม)
+3. Self-host ฟอนต์ Noto Thai (ลด dependency Google Fonts)
+4. พัฒนาแบบประเมินฉบับเต็มพร้อมบันทึก IDP (ต้องมีระบบสมาชิก)
 
 ## ข้อจำกัดความรับผิดชอบ
 
 เว็บไซต์นี้เป็นงานออกแบบเชิงวิชาการและสาธารณะ สรุปสาระจากเอกสารทางการเพื่อความเข้าใจ โปรดตรวจสอบถ้อยคำทางกฎหมายกับเอกสารต้นฉบับที่มีผลใช้บังคับก่อนนำไปอ้างอิงหรือเผยแพร่จริง
-
-## สิ่งที่ควรทำต่อ (ระยะ 3–4)
-
-1. เพิ่มลิงก์ไปยังไฟล์เอกสารต้นฉบับจริงในหน้าแหล่งอ้างอิง
-2. พัฒนาระบบค้นหาทั้งเว็บ (Pagefind หรือ Fuse.js)
-3. ตรวจทานถ้อยคำทางกฎหมายทุกหน้ากับเอกสารต้นฉบับ
-4. กำหนด custom domain (เมื่อพร้อม)

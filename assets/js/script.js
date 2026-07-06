@@ -10,17 +10,90 @@ navToggle?.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
-/* ---------- แท็บมาตรฐานวิชาชีพ ---------- */
-document.querySelectorAll('.tab').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach((b) => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.tab)?.classList.add('active');
+/* ---------- แท็บมาตรฐานวิชาชีพ (WAI-ARIA Tabs) ---------- */
+const tablist = document.querySelector('[role="tablist"]');
+if (tablist) {
+  const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+
+  function activateTab(tab) {
+    tabs.forEach((t) => {
+      const panel = document.getElementById(t.getAttribute('aria-controls'));
+      const selected = t === tab;
+      t.classList.toggle('active', selected);
+      t.setAttribute('aria-selected', selected ? 'true' : 'false');
+      t.tabIndex = selected ? 0 : -1;
+      if (panel) {
+        panel.classList.toggle('active', selected);
+        panel.hidden = !selected;
+      }
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (e) => {
+      let next = index;
+      if (e.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      tabs[next].focus();
+      activateTab(tabs[next]);
+    });
   });
+}
+
+/* ---------- ค้นหาทั้งเว็บ (Pagefind) ---------- */
+const searchTrigger = document.querySelector('.search-trigger');
+const searchDialog = document.getElementById('search-dialog');
+const searchClose = document.querySelector('.search-close');
+
+function openSearch() {
+  if (!searchDialog) return;
+  searchDialog.showModal();
+  searchTrigger?.setAttribute('aria-expanded', 'true');
+  searchDialog.querySelector('input')?.focus();
+}
+
+function closeSearch() {
+  if (!searchDialog) return;
+  searchDialog.close();
+  searchTrigger?.setAttribute('aria-expanded', 'false');
+  searchTrigger?.focus();
+}
+
+searchTrigger?.addEventListener('click', openSearch);
+searchClose?.addEventListener('click', closeSearch);
+searchDialog?.addEventListener('cancel', () => {
+  searchTrigger?.setAttribute('aria-expanded', 'false');
 });
 
-/* ---------- แบบประเมินสมรรถนะ 3 ด้าน (หน้า development.html) ----------
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    openSearch();
+  }
+});
+
+function initPagefind() {
+  if (typeof PagefindUI === 'undefined') return;
+  // eslint-disable-next-line no-new
+  new PagefindUI({
+    element: '#pagefind-search',
+    showSubResults: true,
+    resetStyles: false,
+  });
+}
+
+if (typeof PagefindUI !== 'undefined') {
+  initPagefind();
+} else {
+  window.addEventListener('load', initPagefind);
+}
+
+/* ---------- แบบประเมินสมรรถนะ 3 ด้าน ----------
    ประมวลผลบนเครื่องผู้ใช้ทั้งหมด ไม่ส่งข้อมูลออกภายนอก */
 document.getElementById('assessForm')?.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -33,7 +106,8 @@ document.getElementById('assessForm')?.addEventListener('submit', (e) => {
   const overall = domains.reduce((a, d) => a + d.avg, 0) / domains.length;
   const weakest = domains.reduce((a, d) => (d.avg < a.avg ? d : a), domains[0]);
 
-  let level, advice;
+  let level;
+  let advice;
   if (overall >= 4.2) {
     level = 'ระดับสะท้อนตนเองสูง';
     advice = 'ควรพัฒนาต่อสู่บทบาทพี่เลี้ยง ถ่ายทอดกรณีศึกษา และสร้างผู้นำทางวิชาการรุ่นใหม่ในสถานศึกษา';
@@ -62,7 +136,7 @@ document.getElementById('assessForm')?.addEventListener('submit', (e) => {
   result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
 
-/* ---------- คลังกรณีศึกษา: ตัวกรองหมวด + ค้นหา (หน้า cases.html) ---------- */
+/* ---------- คลังกรณีศึกษา: ตัวกรองหมวด + ค้นหา ---------- */
 const caseGrid = document.getElementById('caseGrid');
 if (caseGrid) {
   const chips = document.querySelectorAll('.chip');
@@ -79,7 +153,7 @@ if (caseGrid) {
       const matchText = !q || card.textContent.toLowerCase().includes(q);
       const show = matchCat && matchText;
       card.hidden = !show;
-      if (show) shown++;
+      if (show) shown += 1;
     });
     if (empty) empty.hidden = shown !== 0;
   }
